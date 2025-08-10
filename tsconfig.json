@@ -3,7 +3,8 @@
     "target": "es6",
     "module": "commonjs",
     "declaration": true,
-    "outDir": "./",
+    "outDir": "./dist",
+    "rootDir": "./lib",
     "allowJs": true,
     "checkJs": false,
     "allowSyntheticDefaultImports": true,
@@ -17,6 +18,6 @@
     "types": ["node", "mocha"],
     "lib": ["es2015", "dom", "ES2022.Object"],
   },
-  "include": ["./lib/**/*.ts", "./lib/**/*.js", "./test/**/*.ts"],
+  "include": ["./lib/**/*.ts", "./lib/**/*.js"],
   "exclude": ["./dist/**/*"]
 }
