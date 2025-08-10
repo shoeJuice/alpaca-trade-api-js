@@ -3,15 +3,15 @@
 [![npm version](https://img.shields.io/npm/v/@alpacahq/alpaca-trade-api.svg)](https://www.npmjs.com/package/@alpacahq/alpaca-trade-api)
 [![CircleCI](https://circleci.com/gh/alpacahq/alpaca-trade-api-js.svg?style=shield)](https://circleci.com/gh/alpacahq/alpaca-trade-api-js)
 
-Node.js library for Alpaca Trade API.
+**Disclaimer:** This library is a community-maintained fork and is not the official Alpaca Trade API JavaScript SDK. The primary contribution to this fork has been the comprehensive conversion to TypeScript for improved type safety and developer experience.
 
 ## API Documentation
 
 The REST API documentation can be found in https://docs.alpaca.markets. For detailed information about an endpoint, please consult the REST API docs. Documentation specific to this library can be found below.
 
-### News
+### TypeScript Conversion
 
-We introduced Typescript support recently, which allows you to use strongly typed data structures and better IDE experience if you are using it.
+This library has been fully converted to TypeScript, providing comprehensive type definitions for all API interactions.
 
 ## Installation
 

@@ -1,5 +1,5 @@
 {
-  "name": "@shoeJuice/alpaca-trade-api",
+  "name": "@shoejuice/alpaca-trade-api",
   "version": "3.2.0",
   "description": "Typescript port for the Alpaca Trade API",
   "main": "dist/index.js",
