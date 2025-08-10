@@ -275,4 +275,29 @@ class Alpaca implements AlpacaClient {
   deleteFromWatchlist = watchlist.deleteFromWatchlist;
 }
 
+
+export {
+  Order,
+  OrderLeg,
+  OrderRequestBody,
+  MarketOrderRequestBody,
+  LimitOrderRequestBody,
+  StopOrderRequestBody,
+  TrailingStopOrderRequestBody,
+  BracketOrderRequestBody,
+  TakeProfitLoss,
+} from "./resources/order";
+
+export { Position, ClosePositionResponse } from "./resources/position";
+export { Watchlist, Asset as WatchlistAsset } from "./resources/watchlist";
+export {
+  Account,
+  AccountConfigurations,
+  Activity,
+  PortfolioHistory,
+} from "./resources/account";
+export { Asset } from "./resources/asset";
+export { Calendar } from "./resources/calendar";
+export { Clock } from "./resources/clock";
+
 export default Alpaca;

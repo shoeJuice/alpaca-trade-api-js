@@ -1,6 +1,6 @@
 import { AlpacaClient } from "../AlpacaClient";
 
-interface Asset {
+export interface Asset {
   // Add asset properties here
 }
 

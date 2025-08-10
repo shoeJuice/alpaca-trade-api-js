@@ -1,19 +1,19 @@
 import { omitBy, isNil } from "lodash";
 import { AlpacaClient } from "../AlpacaClient";
 
-interface Account {
+export interface Account {
   // Add account properties here
 }
 
-interface AccountConfigurations {
+export interface AccountConfigurations {
   // Add account configurations properties here
 }
 
-interface Activity {
+export interface Activity {
   // Add activity properties here
 }
 
-interface PortfolioHistory {
+export interface PortfolioHistory {
   // Add portfolio history properties here
 }
 

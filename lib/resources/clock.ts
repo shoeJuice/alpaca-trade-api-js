@@ -1,6 +1,6 @@
 import { AlpacaClient } from "../AlpacaClient";
 
-interface Clock {
+export interface Clock {
   // Add clock properties here
 }
 

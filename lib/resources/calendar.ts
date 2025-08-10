@@ -2,7 +2,7 @@ import { omitBy, isNil } from "lodash";
 import { toDateString } from "../utils/dateformat";
 import { AlpacaClient } from "../AlpacaClient";
 
-interface Calendar {
+export interface Calendar {
   // Add calendar properties here
 }
 

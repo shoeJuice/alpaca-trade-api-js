@@ -15,6 +15,16 @@ export interface Watchlist {
   assets: Asset[];
 }
 
+export interface CreateWatchlistParams {
+  name: string;
+  symbols: string[];
+}
+
+export interface UpdateWatchlistParams {
+  name?: string;
+  symbols?: string[];
+}
+
 export function getAll(this: AlpacaClient): Promise<Watchlist[]> {
   return this.sendRequest("/watchlists");
 }
@@ -24,7 +34,7 @@ export function getOne(this: AlpacaClient, id: string): Promise<Watchlist> {
 }
 
 export function addWatchlist(this: AlpacaClient, name: string, symbols: string[] = []): Promise<Watchlist> {
-  const body = { name: name, symbols: symbols };
+  const body: CreateWatchlistParams = { name: name, symbols: symbols };
   return this.sendRequest("/watchlists", null, body, "POST");
 }
 
@@ -33,7 +43,7 @@ export function addToWatchlist(this: AlpacaClient, id: string, symbol: string): 
   return this.sendRequest(`/watchlists/${id}`, null, body, "POST");
 }
 
-export function updateWatchlist(this: AlpacaClient, id: string, newWatchList: { name?: string, symbols?: string[] }): Promise<Watchlist> {
+export function updateWatchlist(this: AlpacaClient, id: string, newWatchList: UpdateWatchlistParams): Promise<Watchlist> {
   return this.sendRequest(`/watchlists/${id}`, null, newWatchList, "PUT");
 }
 
