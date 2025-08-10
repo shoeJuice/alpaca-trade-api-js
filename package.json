@@ -1,6 +1,6 @@
 {
   "name": "@shoejuice/alpaca-trade-api",
-  "version": "3.3.2",
+  "version": "3.3.3",
   "description": "Typescript port for the Alpaca Trade API",
   "main": "index.js",
   "types": "index.d.ts",
