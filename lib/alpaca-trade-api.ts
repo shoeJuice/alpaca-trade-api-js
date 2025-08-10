@@ -125,8 +125,19 @@ class Alpaca implements AlpacaClient {
   // Helper methods
   httpRequest = api.httpRequest.bind(this);
   dataHttpRequest = api.dataHttpRequest;
-  sendRequest(endpoint: string, queryParams?: any, body?: any, method?: string) {
-    return api.sendRequest(this.httpRequest, endpoint, queryParams, body, method);
+  sendRequest(
+    endpoint: string,
+    queryParams?: any,
+    body?: any,
+    method?: string
+  ) {
+    return api.sendRequest(
+      this.httpRequest,
+      endpoint,
+      queryParams,
+      body,
+      method
+    );
   }
 
   // Account
@@ -151,6 +162,9 @@ class Alpaca implements AlpacaClient {
   // Asset
   getAssets = asset.getAll;
   getAsset = asset.getOne;
+  getUSTreasuries = asset.getUSTreasuries;
+  getOptionsContracts = asset.getOptionsContracts;
+  getOptionContract = asset.getOptionContract;
 
   // Order
   getOrders = order.getAll;
@@ -165,19 +179,35 @@ class Alpaca implements AlpacaClient {
   getTradesV2(symbol: string, options: any, config = this.configuration) {
     return dataV2.getTrades(symbol, options, config);
   }
-  getMultiTradesV2(symbols: string[], options: any, config = this.configuration) {
+  getMultiTradesV2(
+    symbols: string[],
+    options: any,
+    config = this.configuration
+  ) {
     return dataV2.getMultiTrades(symbols, options, config);
   }
-  getMultiTradesAsyncV2(symbols: string[], options: any, config = this.configuration) {
+  getMultiTradesAsyncV2(
+    symbols: string[],
+    options: any,
+    config = this.configuration
+  ) {
     return dataV2.getMultiTradesAsync(symbols, options, config);
   }
   getQuotesV2(symbol: string, options: any, config = this.configuration) {
     return dataV2.getQuotes(symbol, options, config);
   }
-  getMultiQuotesV2(symbols: string[], options: any, config = this.configuration) {
+  getMultiQuotesV2(
+    symbols: string[],
+    options: any,
+    config = this.configuration
+  ) {
     return dataV2.getMultiQuotes(symbols, options, config);
   }
-  getMultiQuotesAsyncV2(symbols: string[], options: any, config = this.configuration) {
+  getMultiQuotesAsyncV2(
+    symbols: string[],
+    options: any,
+    config = this.configuration
+  ) {
     return dataV2.getMultiQuotesAsync(symbols, options, config);
   }
   getBarsV2(symbol: string, options: any, config = this.configuration) {
@@ -186,7 +216,11 @@ class Alpaca implements AlpacaClient {
   getMultiBarsV2(symbols: string[], options: any, config = this.configuration) {
     return dataV2.getMultiBars(symbols, options, config);
   }
-  getMultiBarsAsyncV2(symbols: string[], options: any, config = this.configuration) {
+  getMultiBarsAsyncV2(
+    symbols: string[],
+    options: any,
+    config = this.configuration
+  ) {
     return dataV2.getMultiBarsAsync(symbols, options, config);
   }
   getLatestTrade(symbol: string, config = this.configuration) {
@@ -213,10 +247,18 @@ class Alpaca implements AlpacaClient {
   getSnapshots(symbols: string[], config = this.configuration) {
     return dataV2.getSnapshots(symbols, config);
   }
-  getCryptoTrades(symbols: string[], options: any, config = this.configuration) {
+  getCryptoTrades(
+    symbols: string[],
+    options: any,
+    config = this.configuration
+  ) {
     return dataV2.getCryptoTrades(symbols, options, config);
   }
-  getCryptoQuotes(symbols: string[], options: any, config = this.configuration) {
+  getCryptoQuotes(
+    symbols: string[],
+    options: any,
+    config = this.configuration
+  ) {
     return dataV2.getCryptoQuotes(symbols, options, config);
   }
   getCryptoBars(symbols: string[], options: any, config = this.configuration) {
@@ -240,7 +282,11 @@ class Alpaca implements AlpacaClient {
   getOptionBars(symbols: string[], options: any, config = this.configuration) {
     return dataV2.getMultiOptionBars(symbols, options, config);
   }
-  getOptionTrades(symbols: string[], options: any, config = this.configuration) {
+  getOptionTrades(
+    symbols: string[],
+    options: any,
+    config = this.configuration
+  ) {
     return dataV2.getMultiOptionTrades(symbols, options, config);
   }
   getOptionLatestTrades(symbols: string[], config = this.configuration) {
@@ -252,10 +298,18 @@ class Alpaca implements AlpacaClient {
   getOptionSnapshots(symbols: string[], config = this.configuration) {
     return dataV2.getOptionSnapshots(symbols, config);
   }
-  getOptionChain(underlying_symbol: string, options: any, config = this.configuration) {
+  getOptionChain(
+    underlying_symbol: string,
+    options: any,
+    config = this.configuration
+  ) {
     return dataV2.getOptionChain(underlying_symbol, options, config);
   }
-  getCorporateActions(symbols: string[], options: any, config = this.configuration) {
+  getCorporateActions(
+    symbols: string[],
+    options: any,
+    config = this.configuration
+  ) {
     return dataV2.getCorporateActions(symbols, options, config);
   }
   getNews(options: any, config = this.configuration) {
@@ -275,7 +329,6 @@ class Alpaca implements AlpacaClient {
   deleteFromWatchlist = watchlist.deleteFromWatchlist;
 }
 
-
 export {
   Order,
   OrderLeg,
@@ -289,14 +342,22 @@ export {
 } from "./resources/order";
 
 export { Position, ClosePositionResponse } from "./resources/position";
-export { Watchlist, Asset as WatchlistAsset } from "./resources/watchlist";
+export { Watchlist } from "./resources/watchlist";
 export {
   Account,
   AccountConfigurations,
   Activity,
   PortfolioHistory,
 } from "./resources/account";
-export { Asset } from "./resources/asset";
+export {
+  Asset,
+  AssetMetadata,
+  TreasuryMetadata,
+  TreasuryResponse,
+  OptionsContractRequest,
+  OptionDeliverable,
+  OptionsContract,
+} from "./resources/asset";
 export { Calendar } from "./resources/calendar";
 export { Clock } from "./resources/clock";
 

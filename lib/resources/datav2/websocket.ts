@@ -93,11 +93,16 @@ interface AlpacaBaseWebsocket {
   onError: (fn: (err: Error) => void) => void;
   onStateChange: (fn: () => void) => void;
   authenticate: () => void;
-  handleMessage(data: any): void;
+  handleMessage: (data: any) => void;
   disconnect: () => void;
   onDisconnect: (fn: () => void) => void;
-  getSubscriptions: () => void;
-  log: (msg: Array<any>) => void;
+  getSubscriptions: () => any;
+  log: (msg: unknown) => void;
+  dataHandler(data: unknown): void;
+  updateSubscriptions(data: unknown): void;
+  subscribeAll(): void;
+  ping(): void;
+  resetSession(): void;
 }
 
 export interface WebsocketOptions {

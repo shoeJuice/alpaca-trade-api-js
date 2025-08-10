@@ -3,7 +3,11 @@ import { toDateString } from "../utils/dateformat";
 import { AlpacaClient } from "../AlpacaClient";
 
 export interface Calendar {
-  // Add calendar properties here
+  date: string;
+  open: string;
+  close: string;
+  session_open: string;
+  session_close: string;
 }
 
 export function get(this: AlpacaClient, { start, end }: { start?: Date, end?: Date } = {}): Promise<Calendar[]> {

@@ -1,10 +1,5 @@
 import { AlpacaClient } from "../AlpacaClient";
-import { Position } from "./position"; // Reusing Position interface for Asset properties
-
-export interface Asset extends Position {
-  // Asset properties are covered by Position interface, 
-  // but you can add more specific asset properties here if needed
-}
+import { Asset } from "./asset";
 
 export interface Watchlist {
   id: string;

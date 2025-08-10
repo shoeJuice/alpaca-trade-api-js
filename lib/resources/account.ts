@@ -2,19 +2,70 @@ import { omitBy, isNil } from "lodash";
 import { AlpacaClient } from "../AlpacaClient";
 
 export interface Account {
-  // Add account properties here
+  id: string;
+  account_number: string;
+  status: string;
+  currency: string;
+  cash: string;
+  portfolio_value: string;
+  pattern_day_trader: boolean;
+  trading_blocked: boolean;
+  transfers_blocked: boolean;
+  account_blocked: boolean;
+  created_at: string;
+  trade_suspended_by_user: boolean;
+  multiplier: string;
+  shorting_enabled: boolean;
+  equity: string;
+  last_equity: string;
+  long_market_value: string;
+  short_market_value: string;
+  initial_margin: string;
+  maintenance_margin: string;
+  last_maintenance_margin: string;
+  daytrade_count: number;
+  sudo_override_dtbp_check: string;
+  buying_power: string;
+  daytrading_buying_power: string;
+  regt_buying_power: string;
+  non_marginable_buying_power: string;
+  bod_dtbp: string;
+  accrued_fees: string;
+  pending_transfer_in: string;
+  pending_transfer_out: string;
 }
 
 export interface AccountConfigurations {
-  // Add account configurations properties here
+  dtbp_check: string;
+  trade_confirm_email: string;
+  suspend_trade: boolean;
+  no_shorting: boolean;
 }
 
 export interface Activity {
-  // Add activity properties here
+  activity_type: string;
+  id: string;
+  cum_qty: string;
+  leaves_qty: string;
+  price: string;
+  qty: string;
+  side: string;
+  symbol: string;
+  transaction_time: string;
+  order_id: string;
+  type: string;
+  date: string;
+  net_amount: string;
+  per_share_amount: string;
 }
 
 export interface PortfolioHistory {
-  // Add portfolio history properties here
+  timestamp: number[];
+  equity: number[];
+  profit_loss: number[];
+  profit_loss_pct: number[];
+  base_value: number;
+  timeframe: string;
 }
 
 export function get(this: AlpacaClient): Promise<Account> {
