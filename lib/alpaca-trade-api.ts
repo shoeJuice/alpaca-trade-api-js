@@ -312,7 +312,7 @@ class Alpaca implements AlpacaClient {
   ) {
     return dataV2.getCorporateActions(symbols, options, config);
   }
-  getNews(options: any, config = this.configuration) {
+  getNews(options: dataV2.GetNewsParams, config = this.configuration) {
     return dataV2.getNews(options, config);
   }
   newTimeframe(amount: number, unit: entityV2.TimeFrameUnit) {
@@ -360,5 +360,8 @@ export {
 } from "./resources/asset";
 export { Calendar } from "./resources/calendar";
 export { Clock } from "./resources/clock";
+
+export { GetNewsParams } from "./resources/datav2/rest_v2";
+export { AlpacaNews } from "./resources/datav2/entityv2";
 
 export default Alpaca;
