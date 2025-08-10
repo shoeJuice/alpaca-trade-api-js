@@ -1,12 +1,19 @@
-"use strict";
+import axios, { AxiosRequestConfig, AxiosResponse, Method } from "axios";
+import joinUrl from "urljoin";
 
-const axios = require("axios");
-const joinUrl = require("urljoin");
+interface Configuration {
+  baseUrl: string;
+  keyId: string;
+  secretKey: string;
+  apiVersion: string;
+  oauth: string;
+  dataBaseUrl: string;
+}
 
-function httpRequest(endpoint, queryParams, body, method) {
+export function httpRequest(this: { configuration: Configuration }, endpoint: string, queryParams?: any, body?: any, method?: string): Promise<AxiosResponse> {
   const { baseUrl, keyId, secretKey, apiVersion, oauth } = this.configuration;
-  const req = {
-    method: method || "GET",
+  const req: AxiosRequestConfig = {
+    method: method as Method || "GET",
     url: joinUrl(baseUrl, apiVersion, endpoint),
     params: queryParams || {},
     headers:
@@ -25,11 +32,11 @@ function httpRequest(endpoint, queryParams, body, method) {
   return axios(req);
 }
 
-function dataHttpRequest(endpoint, queryParams, body, method) {
+export function dataHttpRequest(this: { configuration: Configuration }, endpoint: string, queryParams?: any, body?: any, method?: string): Promise<AxiosResponse> {
   const { dataBaseUrl, keyId, secretKey, oauth } = this.configuration;
-  const req = {
-    method: method || "GET",
-    url: joinUrl(dataBaseUrl, "v1", endpoint),
+  const req: AxiosRequestConfig = {
+    method: method as Method || "GET",
+    url: joinUrl(dataBaseUrl, "v2", endpoint), // Data API in docs is set to v2, upgrade
     params: queryParams || {},
     headers:
       oauth !== ""
@@ -48,12 +55,6 @@ function dataHttpRequest(endpoint, queryParams, body, method) {
   return axios(req);
 }
 
-function sendRequest(f, endpoint, queryParams, body, method) {
+export function sendRequest(f: (endpoint: string, queryParams?: any, body?: any, method?: string) => Promise<AxiosResponse>, endpoint: string, queryParams?: any, body?: any, method?: string): Promise<any> {
   return f(endpoint, queryParams, body, method).then((resp) => resp.data);
 }
-
-module.exports = {
-  httpRequest,
-  dataHttpRequest,
-  sendRequest,
-};

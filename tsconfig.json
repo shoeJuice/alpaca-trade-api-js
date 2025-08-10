@@ -13,9 +13,10 @@
     "strictNullChecks": true,
     "alwaysStrict": true,
     "skipLibCheck": true,
-    "types": ["node"],
-    "lib": ["ES2022.Object"],
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "types": ["node", "mocha"],
+    "lib": ["es2015", "dom", "ES2022.Object"],
   },
-  "include": ["./lib/**/*.ts", "./lib/**/*.js"],
+  "include": ["./lib/**/*.ts", "./lib/**/*.js", "./test/**/*.ts"],
   "exclude": ["./dist/**/*"]
 }

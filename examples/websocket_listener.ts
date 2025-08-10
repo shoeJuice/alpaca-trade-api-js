@@ -4,12 +4,44 @@
  * to add trading logic to this example too
  */
 
-const Alpaca = require("@alpacahq/alpaca-trade-api");
+import Alpaca from "../lib/alpaca-trade-api";
+
 const API_KEY = "<YOUR_API_KEY>";
 const API_SECRET = "<YOUR_API_SECRET>";
 
+interface WebsocketSubscriberConfig {
+  keyId: string;
+  secretKey: string;
+  paper?: boolean;
+}
+
+interface StockTrade {
+  price: number;
+  // Add other trade properties
+}
+
+interface StockQuote {
+  bidprice: number;
+  askprice: number;
+  // Add other quote properties
+}
+
+interface StockAgg {
+  // Add aggregation properties
+}
+
+interface OrderUpdate {
+  // Add order update properties
+}
+
+interface AccountUpdate {
+  // Add account update properties
+}
+
 class WebsocketSubscriber {
-  constructor({ keyId, secretKey, paper = true }) {
+  alpaca: Alpaca;
+
+  constructor({ keyId, secretKey, paper = true }: WebsocketSubscriberConfig) {
     this.alpaca = new Alpaca({
       keyId: keyId,
       secretKey: secretKey,
@@ -30,21 +62,21 @@ class WebsocketSubscriber {
     data_client.onDisconnect(() => {
       console.log("Disconnected");
     });
-    data_client.onStateChange((newState) => {
+    data_client.onStateChange((newState: string) => {
       console.log(`State changed to ${newState}`);
     });
-    data_client.onStockTrades(function (subject, data) {
+    data_client.onStockTrades(function (subject: string, data: StockTrade) {
       console.log(`Stock trades: ${subject}, price: ${data.price}`);
     });
-    data_client.onStockQuotes(function (subject, data) {
+    data_client.onStockQuotes(function (subject: string, data: StockQuote) {
       console.log(
         `Stock quotes: ${subject}, bid: ${data.bidprice}, ask: ${data.askprice}`
       );
     });
-    data_client.onStockAggSec(function (subject, data) {
+    data_client.onStockAggSec(function (subject: string, data: StockAgg) {
       console.log(`Stock agg sec: ${subject}, ${data}`);
     });
-    data_client.onStockAggMin(function (subject, data) {
+    data_client.onStockAggMin(function (subject: string, data: StockAgg) {
       console.log(`Stock agg min: ${subject}, ${data}`);
     });
     data_client.connect();
@@ -58,13 +90,13 @@ class WebsocketSubscriber {
     updates_client.onDisconnect(() => {
       console.log("Disconnected");
     });
-    updates_client.onStateChange((newState) => {
+    updates_client.onStateChange((newState: string) => {
       console.log(`State changed to ${newState}`);
     });
-    updates_client.onOrderUpdate((data) => {
+    updates_client.onOrderUpdate((data: OrderUpdate) => {
       console.log(`Order updates: ${JSON.stringify(data)}`);
     });
-    updates_client.onAccountUpdate((data) => {
+    updates_client.onAccountUpdate((data: AccountUpdate) => {
       console.log(`Account updates: ${JSON.stringify(data)}`);
     });
     updates_client.connect();

@@ -1,8 +1,10 @@
-"use strict";
+import chai, { expect } from "chai";
+import chaiAsPromised from "chai-as-promised";
+import * as mock from "../support/mock-server";
+import Alpaca from "../../lib/alpaca-trade-api";
 
-const expect = require("chai").expect;
-const mock = require("../support/mock-server");
-const Alpaca = require("../../dist/alpaca-trade-api");
+chai.use(chaiAsPromised);
+
 const alpaca = new Alpaca(mock.getConfig());
 
 describe("calendar resource", function () {
@@ -13,13 +15,13 @@ describe("calendar resource", function () {
 
     it("returns valid results with `start` parameter", function () {
       return expect(
-        alpaca.getCalendar({ start: "2018-01-01" })
+        alpaca.getCalendar({ start: new Date("2018-01-01") })
       ).to.eventually.be.an("array");
     });
 
     it("returns valid results with `end` parameter", function () {
       return expect(
-        alpaca.getCalendar({ end: "2018-01-01" })
+        alpaca.getCalendar({ end: new Date("2018-01-01") })
       ).to.eventually.be.an("array");
     });
 

@@ -1,8 +1,10 @@
-"use strict";
+import chai, { expect } from "chai";
+import chaiAsPromised from "chai-as-promised";
+import * as mock from "../support/mock-server";
+import Alpaca from "../../lib/alpaca-trade-api";
 
-const expect = require("chai").expect;
-const mock = require("../support/mock-server");
-const Alpaca = require("../../dist/alpaca-trade-api");
+chai.use(chaiAsPromised);
+
 const alpaca = new Alpaca(mock.getConfig());
 
 describe("clock resource", function () {

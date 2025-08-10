@@ -3,7 +3,7 @@
 // certain endpoints don't accept ISO dates,
 // so to allow the user to use regular JS date objects
 // with the api, we need to convert them to strings
-function toDateString (date) {
+export function toDateString (date: Date | string | null): string | null {
   if (date == null || typeof date === 'string') return date
   const year = date.getUTCFullYear()
   const month = numPad(date.getUTCMonth() + 1)
@@ -11,13 +11,9 @@ function toDateString (date) {
   return `${year}-${month}-${day}`
 }
 
-function numPad (num) {
+function numPad (num: number): string | number {
   if (num < 10) {
     return '0' + num
   }
   return num
-}
-
-module.exports = {
-  toDateString
 }
