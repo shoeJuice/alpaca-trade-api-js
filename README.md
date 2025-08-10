@@ -30,7 +30,7 @@ npm install --save @alpacahq/alpaca-trade-api
 Import the module first.
 
 ```js
-const Alpaca = require('@alpacahq/alpaca-trade-api')
+import Alpaca from '@shoejuice/alpaca-trade-api';
 ```
 
 Instantiate the API with config options, obtained from the dashboard at app.alpaca.markets.
