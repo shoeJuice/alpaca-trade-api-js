@@ -1,9 +1,20 @@
 {
   "name": "@shoejuice/alpaca-trade-api",
-  "version": "3.3.1",
+  "version": "3.2.1",
   "description": "Typescript port for the Alpaca Trade API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "examples/",
+    "node_modules/",
+    "tools/",
+    "CODEOWNERS",
+    "README.md",
+    "LICENSE",
+    "tsconfig.json",
+    ".eslintrc.json"
+  ],
   "engines": {
     "node": ">=16.9",
     "npm": ">=6"
@@ -52,7 +63,6 @@
     "@types/lodash": "^4.14.173",
     "@types/mocha": "^10.0.10",
     "@types/msgpack5": "^3.4.2",
-    "eslint": "^8.57.0",
     "@types/node": "^16.18.126",
     "@types/ws": "^8.2.0",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
@@ -60,6 +70,7 @@
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.2",
+    "eslint": "^8.57.0",
     "express": "^4.17.1",
     "globals": "^15.4.0",
     "joi": "^14.3.1",
