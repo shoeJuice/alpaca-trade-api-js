@@ -32,6 +32,9 @@
     "url": "https://github.com/alpacahq/alpaca-trade-api-js/issues"
   },
   "homepage": "https://alpaca.markets/",
+  "files": [
+    "dist/"
+  ],
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^6.2.0",
